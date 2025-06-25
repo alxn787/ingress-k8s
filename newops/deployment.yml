@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: secrets-deployment
+  labels:
+    app: secrets
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: secrets
+  template:
+    metadata:
+      labels:
+        app: secrets
+    spec:
+      containers:
+      - name: secrets
+        image: alxn787/backend-pg:5
+        ports:
+        - containerPort: 3000
