@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: your-domain.com
+  - host: week36.alxn787.work
     http:
       paths:
       - path: /nginx
@@ -18,10 +18,10 @@ spec:
             name: nginx-service
             port:
               number: 80
-      - path: /apache
+      - path: /httpd
         pathType: Prefix
         backend:
           service:
-            name: apache-service
+            name: httpd-service
             port:
               number: 80
