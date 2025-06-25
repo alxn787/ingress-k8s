@@ -16,6 +16,17 @@ spec:
     spec:
       containers:
       - name: secrets
-        image: alxn787/backend-pg:5
+        image: alxn787/backend-pg:8
         ports:
         - containerPort: 3000
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: port
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: database_url
