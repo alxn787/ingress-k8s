@@ -1,12 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traefik-web-apps-ingress
+  name: web-apps-ingress
   namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: traefik
+  ingressClassName: nginx
   rules:
-  - host: traefik-domain.com
+  - host: your-domain.com
     http:
       paths:
       - path: /nginx
